@@ -1,0 +1,13 @@
+table {
+  width: 100%;
+  table-layout: fixed;
+}
+table tr th {
+  text-align: center;
+  background: gray;
+  color: white;
+}
+tr:nth-child(even) {
+  background-color: #f2f2f2
+}
+
