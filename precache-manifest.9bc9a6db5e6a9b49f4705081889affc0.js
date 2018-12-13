@@ -4,23 +4,23 @@ self.__precacheManifest = [
     "url": "/Staffregistry/static/js/runtime~main.ef88b0b9.js"
   },
   {
-    "revision": "8c023b469018a2de9473",
-    "url": "/Staffregistry/static/js/main.8c023b46.chunk.js"
+    "revision": "b3706ceb7b389c91d01f",
+    "url": "/Staffregistry/static/js/main.b3706ceb.chunk.js"
   },
   {
     "revision": "e74bbb01f853c701e501",
     "url": "/Staffregistry/static/js/1.e74bbb01.chunk.js"
   },
   {
-    "revision": "8c023b469018a2de9473",
-    "url": "/Staffregistry/static/css/main.e6f735da.chunk.css"
+    "revision": "b3706ceb7b389c91d01f",
+    "url": "/Staffregistry/static/css/main.48fc1597.chunk.css"
   },
   {
     "revision": "e74bbb01f853c701e501",
     "url": "/Staffregistry/static/css/1.6d8cf3c1.chunk.css"
   },
   {
-    "revision": "1248313b5b3a701cdf0a11bd0dde946a",
+    "revision": "7e2e6d57f9e2b6b7a7760c1594ee2ee4",
     "url": "/Staffregistry/index.html"
   }
 ];
