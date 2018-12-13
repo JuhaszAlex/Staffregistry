@@ -8,8 +8,6 @@ import persons from './components/persons.json';
 import Modal from 'react-modal';
 import LineChart from './components/LineChart';
 
-
-
 class App extends Component {
 
 constructor(props) {
@@ -83,11 +81,11 @@ createCoordinates() {
         		<AddButton toggleModal={this.toggleModal}/>
         		<Table data={this.state.details} removeRow={this.removeRow}/>
             <Modal {...this.props} isOpen={this.state.isActive} onRequestClose={() => this.toggleModal('Form')}
-            className="br3 bg-white b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-2 center">
+            className="Modal br3 bg-white b--black-10 mt2 w-100 w-50-m w-25-l mw6 shadow-2 center">
               <AddMember toggleModal={this.toggleModal} addNewRow={this.addNewRow} />
             </Modal>
             <Modal {...this.props} isOpen={this.state.isLineActive} onRequestClose={() => this.toggleModal('Line')}
-              className="br3 bg-white b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-2 center">
+              className="Modal br3 bg-white b--black-10 mt2 w-100 w-50-m w-25-l mw6 shadow-2 center">
               {this.state.details.length >= 2 ?
               <LineChart className="center" data={this.createCoordinates()} />
               : <h3 className="tc red pt2 pb2"> There must be at least 2 members in the table with age defined.</h3>

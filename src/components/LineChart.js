@@ -81,7 +81,7 @@ pathD += data.map((point, i) => {
         {this.makePath()}
         {this.makeAxis()}
       </svg>
-      <p className="pb2">Click somewhere to close.</p>
+      <p className="pb2">Click somewhere out of the modal to close.</p>
       </div>
     )
   }
