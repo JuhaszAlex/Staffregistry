@@ -26,8 +26,14 @@
   overflow-y: hidden;
 }
 
+@media only screen and (max-width: 820px) {
+  .Modal {
+    max-height: calc(100vh);
+    overflow-y: auto;
+}
+}
 .Modal {
-    max-height: calc(100vh - 210px);
+
     overflow-y: auto;
 }
 
