@@ -6,7 +6,7 @@ import Table from './components/Table';
 import DataDump from './components/DataDump';
 import persons from './components/persons.json';
 import Modal from 'react-modal';
-import LineChart from './components/LineChart';
+import Chart from './components/Chart';
 
 class App extends Component {
 
@@ -15,7 +15,7 @@ constructor(props) {
   this.state = {
     details: persons,
     isActive: false,
-    isLineActive: false,
+    isChartActive: false,
     fields: {}
   }
 }
@@ -27,8 +27,8 @@ componentWillMount() {
 toggleModal = (route) => {
   if(route === 'Form') {
     this.setState({isActive: !this.state.isActive})
-  } else if (route === 'Line') {
-    this.setState({isLineActive: !this.state.isLineActive})
+  } else if (route === 'Chart') {
+    this.setState({isChartActive: !this.state.isChartActive})
   }
 }
 
@@ -45,16 +45,14 @@ removeRow = (i, name) => {
   this.setState( {details: this.state.details} );
 }
 
-createCoordinates() {
+createCoordinates = () => {
     const rawdata = this.state.details.map(function(el) {
       return parseInt(el.age);
     });
-    console.log(rawdata);
     
     const onlyNumbers =  rawdata.filter( value => 
       !Number.isNaN(value) 
     );
-    console.log(onlyNumbers);
     
     const z = []
       for(let i = 1; i <= onlyNumbers.length; i++) {
@@ -67,7 +65,6 @@ createCoordinates() {
       const y = onlyNumbers[i]
       data.push({x, y})
     }
-    console.log(data);
     return data;
 }
 
@@ -81,13 +78,13 @@ createCoordinates() {
         		<AddButton toggleModal={this.toggleModal}/>
         		<Table data={this.state.details} removeRow={this.removeRow}/>
             <Modal {...this.props} isOpen={this.state.isActive} onRequestClose={() => this.toggleModal('Form')}
-            className="Modal br3 bg-white b--black-10 mt2 w-100 w-50-m w-25-l mw6 shadow-2 center">
+            className="Modal br3 bg-white b--black-10 mt2 w-100 w-50-m mw6 shadow-2 center">
               <AddMember toggleModal={this.toggleModal} addNewRow={this.addNewRow} />
             </Modal>
-            <Modal {...this.props} isOpen={this.state.isLineActive} onRequestClose={() => this.toggleModal('Line')}
-              className="Modal br3 bg-white b--black-10 mt2 w-100 w-50-m w-25-l mw6 shadow-2 center">
+            <Modal {...this.props} isOpen={this.state.isChartActive} onRequestClose={() => this.toggleModal('Chart')}
+              className="Modal br3 bg-white b--black-10 mt2  w-100 w-75-m mw6 shadow-2 center">
               {this.state.details.length >= 2 ?
-              <LineChart className="center" data={this.createCoordinates()} />
+              <Chart data={this.createCoordinates()} />
               : <h3 className="tc red pt2 pb2"> There must be at least 2 members in the table with age defined.</h3>
               }
             </Modal>
